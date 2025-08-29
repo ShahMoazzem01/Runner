@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     [Header("1 = normal speed, 4 = 4x Speed")]
     [Range(1f, 4f)]
     public float gameSpeed = 1f;
+    public float baseSpeed = 5f;
+
+    [Header("Player Run Tracking")]
+    public float distanceRun = 0f;
 
     void Awake()
     {
@@ -25,4 +29,14 @@ public class GameManager : MonoBehaviour
     {
         gameSpeed = Mathf.Clamp(speed, 1f, 4f);
     }
+
+    void Update()
+    {
+        //trac distance run every fram
+        distanceRun += baseSpeed * gameSpeed * Time.deltaTime;
+        UIManager.Instance.UpdateDistanceText(distanceRun);
+    }
+
+
+
 }

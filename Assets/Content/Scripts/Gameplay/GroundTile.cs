@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class GroundTile : MonoBehaviour, IPoolable
 {
-    public float moveSpeed = 5f;
+
     ObjectPool myPool;
+    float baseSpeed;
 
     public void SetPool(ObjectPool pool) => myPool = pool;
 
@@ -17,11 +18,17 @@ public class GroundTile : MonoBehaviour, IPoolable
         // Optional: cleanup before returning to pool
     }
 
+    void Start()
+    {
+        baseSpeed = GameManager.Instance.baseSpeed;
+    }
+
+
     void Update()
     {
         // Move tile backward using GameManager speed multiplier
         float speedMultiplier = GameManager.Instance.gameSpeed;
-        transform.Translate(Vector3.back * moveSpeed * speedMultiplier * Time.deltaTime);
+        transform.Translate(Vector3.back * baseSpeed * speedMultiplier * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
