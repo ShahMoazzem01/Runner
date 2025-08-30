@@ -12,7 +12,7 @@ public class CoinManager : MonoBehaviour
     public float coinGap = 4f;
     public float generationDistance = 50f;
     public float coinHeight = 1f;
-    public float worldMoveSpeed = 10f;
+    public float worldMoveSpeed;
 
     [Header("Generation Probabilities")]
     [Range(0, 100)] public int oneLaneProbability = 40;
@@ -33,6 +33,7 @@ public class CoinManager : MonoBehaviour
 
     void Start()
     {
+        worldMoveSpeed = GameManager.Instance.baseSpeed * GameManager.Instance.gameSpeed;
         laneWidth = playAreaWidth / 3f;
         skipProbability = 100 - (oneLaneProbability + twoLaneProbability + threeLaneProbability);
 
@@ -56,6 +57,7 @@ public class CoinManager : MonoBehaviour
 
     void Update()
     {
+        worldMoveSpeed = GameManager.Instance.baseSpeed * GameManager.Instance.gameSpeed;
         if (coinPool == null || player == null) return;
 
         // Move the spawn frontier with the world (same as coins)

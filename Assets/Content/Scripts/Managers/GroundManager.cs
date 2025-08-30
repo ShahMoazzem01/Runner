@@ -44,7 +44,7 @@ public class GroundManager : MonoBehaviour
 
         if (lastGround == null)
         {
-            ground.transform.position = new Vector3(0f, -0.5f, 0f);
+            ground.transform.position = new Vector3(0f, 0f, 0f);
         }
         else
         {

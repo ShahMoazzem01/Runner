@@ -154,6 +154,7 @@ MonoBehaviour:
   - {fileID: 1201593383}
   - {fileID: 1146494726}
   - {fileID: 1492608653}
+  - {fileID: 264501134}
   initalGroundPoolSize: 4
   groundLength: 50
 --- !u!4 &104952552
@@ -273,6 +274,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &264501133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264501135}
+  - component: {fileID: 264501134}
+  m_Layer: 0
+  m_Name: ShadeLeftOpeningPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &264501134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83887ac4cdd329c42b32613cc7ebf279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6049941435434483230, guid: fb0e59118c38ada47a9aa87228d66581, type: 3}
+  poolSize: 4
+--- !u!4 &264501135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297480762
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +331,7 @@ GameObject:
   - component: {fileID: 297480764}
   - component: {fileID: 297480763}
   m_Layer: 0
-  m_Name: GroundPool2
+  m_Name: Track1Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83887ac4cdd329c42b32613cc7ebf279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5759268664666482227, guid: d49b3fe1c923a8e40bc5523351012deb, type: 3}
+  prefab: {fileID: 8063434447995233806, guid: 1785f261a6877c84ba8619e404fb4fac, type: 3}
   poolSize: 4
 --- !u!4 &297480764
 Transform:
@@ -377,7 +424,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 5
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -862,7 +909,7 @@ GameObject:
   - component: {fileID: 1146494727}
   - component: {fileID: 1146494726}
   m_Layer: 0
-  m_Name: GroundPool4
+  m_Name: ShadeRightOpeningPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83887ac4cdd329c42b32613cc7ebf279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5759268664666482227, guid: 6c7b1f1cc92af444986b38b17e6a7d9d, type: 3}
+  prefab: {fileID: 8664995908880953162, guid: c8dac0498ad509f49af99d4bd184f10c, type: 3}
   poolSize: 4
 --- !u!4 &1146494727
 Transform:
@@ -908,7 +955,7 @@ GameObject:
   - component: {fileID: 1201593384}
   - component: {fileID: 1201593383}
   m_Layer: 0
-  m_Name: GroundPool3
+  m_Name: Track2Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83887ac4cdd329c42b32613cc7ebf279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5759268664666482227, guid: a5a65003fff65fc4694fc07c0caf0fa8, type: 3}
+  prefab: {fileID: 8621132233651256756, guid: 8c9d591efcaaea84fb873436f6368fe2, type: 3}
   poolSize: 4
 --- !u!4 &1201593384
 Transform:
@@ -1098,7 +1145,7 @@ GameObject:
   - component: {fileID: 1492608654}
   - component: {fileID: 1492608653}
   m_Layer: 0
-  m_Name: GroundPool5
+  m_Name: ShadeMiddleOpeningPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83887ac4cdd329c42b32613cc7ebf279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5759268664666482227, guid: 25f6507aaaaefb8458ec308916b4ea51, type: 3}
+  prefab: {fileID: 8860614213121545723, guid: 789d156a4fee8ba459c50602ef078e8b, type: 3}
   poolSize: 4
 --- !u!4 &1492608654
 Transform:
@@ -1329,7 +1376,7 @@ GameObject:
   - component: {fileID: 1922819465}
   - component: {fileID: 1922819464}
   m_Layer: 0
-  m_Name: GroundPool1
+  m_Name: EmptyTrackPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1347,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83887ac4cdd329c42b32613cc7ebf279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5759268664666482227, guid: f35ae85e27f2efa4eb11a95b22f5406f, type: 3}
+  prefab: {fileID: 4597801040391733752, guid: 4439af077525d6b40a02d22d8e4397ea, type: 3}
   poolSize: 4
 --- !u!4 &1922819465
 Transform:
@@ -1515,6 +1562,7 @@ SceneRoots:
   - {fileID: 1201593384}
   - {fileID: 1146494727}
   - {fileID: 1492608654}
+  - {fileID: 264501135}
   - {fileID: 1097222900}
   - {fileID: 118966960}
   - {fileID: 1793518523}

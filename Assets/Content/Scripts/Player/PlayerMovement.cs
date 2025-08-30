@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position,
             horizontalTarget,
-            moveSpeed * Time.deltaTime
+            moveSpeed * GameManager.Instance.gameSpeed * Time.deltaTime
         );
 
         // Handle Jumping

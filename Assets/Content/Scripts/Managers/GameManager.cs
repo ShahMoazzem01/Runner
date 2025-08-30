@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     public void SetSpeed(float speed)
