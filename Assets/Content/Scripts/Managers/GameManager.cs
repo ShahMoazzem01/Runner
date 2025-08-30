@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Run Tracking")]
     public float distanceRun = 0f;
+    public int coinCount = 0;
 
     void Awake()
     {
@@ -35,6 +36,12 @@ public class GameManager : MonoBehaviour
         //trac distance run every fram
         distanceRun += baseSpeed * gameSpeed * Time.deltaTime;
         UIManager.Instance.UpdateDistanceText(distanceRun);
+    }
+
+    public void onCoinCollected()
+    {
+        coinCount += 1;
+        UIManager.Instance.UpdateCoinText(coinCount);
     }
 
 

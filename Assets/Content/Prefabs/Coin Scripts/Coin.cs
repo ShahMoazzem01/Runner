@@ -24,6 +24,10 @@ public class Coin : MonoBehaviour
     {
         // Add score or other logic here
         Debug.Log("Coin collected!");
+        //update coinCount and ui in game manager
+        GameManager.Instance.onCoinCollected();
+
+        // Play coin collection sound
 
         ReturnToPool();
     }

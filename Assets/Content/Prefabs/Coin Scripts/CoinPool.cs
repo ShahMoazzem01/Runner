@@ -1,3 +1,4 @@
+// CoinPool.cs  (serializable pool class; same file or separate, as you prefer)
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,11 +27,9 @@ public class CoinPool
         }
 
         for (int i = 0; i < poolSize; i++)
-        {
             CreateNewCoin();
-        }
 
-        Debug.Log("Coin pool initialized with " + poolSize + " coins.");
+        Debug.Log("Coin pool initialized with " + allCoins.Count + " coins.");
     }
 
     private void CreateNewCoin()
@@ -60,18 +59,27 @@ public class CoinPool
         }
 
         Coin coin = availableCoins.Dequeue();
+        if (coin == null)
+            return GetCoin(); // defensive
+
+        // Activate and return
         coin.gameObject.SetActive(true);
+        // Optionally detach from pool parent so it's easier to inspect in hierarchy when active:
+        coin.transform.SetParent(null);
         return coin;
     }
 
     public void ReturnToPool(Coin coin)
     {
-        if (coin != null && coin.gameObject != null)
-        {
-            coin.gameObject.SetActive(false);
-            coin.transform.SetParent(coinParent); // keep hierarchy clean
-            availableCoins.Enqueue(coin);
-        }
+        if (coin == null || coin.gameObject == null) return;
+
+        // If already inactive, don't enqueue again (prevents double-enqueue)
+        if (!coin.gameObject.activeInHierarchy)
+            return;
+
+        coin.gameObject.SetActive(false);
+        coin.transform.SetParent(coinParent); // keep in pool folder
+        availableCoins.Enqueue(coin);
     }
 
     public int GetActiveCoinCount()

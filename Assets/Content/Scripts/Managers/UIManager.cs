@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 
     [Header("TextUI")]
     [SerializeField] TMP_Text distanceText;
+    [SerializeField] TMP_Text cointText;
 
     [Header("Settings")]
     [SerializeField] float updateRate = 0.1f;
@@ -33,6 +34,8 @@ public class UIManager : MonoBehaviour
             nextUpdateTime = Time.time + updateRate;
         }
     }
+
+    public void UpdateCoinText(int coinCount) => cointText.text = coinCount.ToString();
 
 
 

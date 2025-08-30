@@ -1,3 +1,4 @@
+// CoinManager.cs
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +34,13 @@ public class CoinManager : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager.Instance is null!");
+            enabled = false;
+            return;
+        }
+
         worldMoveSpeed = GameManager.Instance.baseSpeed * GameManager.Instance.gameSpeed;
         laneWidth = playAreaWidth / 3f;
         skipProbability = 100 - (oneLaneProbability + twoLaneProbability + threeLaneProbability);
@@ -57,10 +65,11 @@ public class CoinManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance == null) return;
         worldMoveSpeed = GameManager.Instance.baseSpeed * GameManager.Instance.gameSpeed;
         if (coinPool == null || player == null) return;
 
-        // Move the spawn frontier with the world (same as coins)
+        // Move frontier backward with the world movement so spawning continues as coins move -Z
         lastSpawnZ -= worldMoveSpeed * Time.deltaTime;
 
         // Ensure coins are at least generationDistance ahead of player
@@ -69,7 +78,6 @@ public class CoinManager : MonoBehaviour
             GenerateCoinSet();
         }
 
-        // Debugging info (useful to watch in Console)
         DebugLog($"lastSpawnZ: {lastSpawnZ:F2}  threshold: {player.position.z + generationDistance:F2}  activeCoins: {activeCoins.Count}");
 
         RemoveOldCoins();
@@ -106,6 +114,13 @@ public class CoinManager : MonoBehaviour
                 Coin coin = coinPool.GetCoin();
                 if (coin != null)
                 {
+                    // Remove any stale occurrences of this coin in activeCoins (prevents duplicate movement)
+                    for (int j = activeCoins.Count - 1; j >= 0; j--)
+                    {
+                        if (activeCoins[j] == coin)
+                            activeCoins.RemoveAt(j);
+                    }
+
                     coin.transform.position = new Vector3(xPos, coinHeight, zPos);
                     coin.laneIndex = lane;
                     activeCoins.Add(coin);
@@ -144,12 +159,13 @@ public class CoinManager : MonoBehaviour
     void MoveCoins()
     {
         // Move coins toward negative Z (world moves backward)
+        float moveSpeed = worldMoveSpeed;
         for (int i = activeCoins.Count - 1; i >= 0; i--)
         {
             Coin coin = activeCoins[i];
             if (coin != null && coin.gameObject.activeInHierarchy)
             {
-                coin.transform.Translate(0, 0, -worldMoveSpeed * Time.deltaTime, Space.World);
+                coin.transform.Translate(0, 0, -moveSpeed * Time.deltaTime, Space.World);
             }
         }
     }
