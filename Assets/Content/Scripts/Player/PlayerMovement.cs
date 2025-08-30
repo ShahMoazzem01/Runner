@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("lane Settings")]
+    [Header("Lane Settings")]
     [SerializeField] float playAreaWidth = 12f;
     int currentLane = 1; // 0 = left, 1 = middle, 2 = right
     Vector3 targetPosition;
@@ -14,57 +14,52 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump Settings")]
     [SerializeField] float jumpHeight = 10f;
-    [SerializeField] float jumpDuration = 0.5f; //time to reach apex
+    [SerializeField] float jumpDuration = 0.5f; // time to reach apex
 
     bool isJumping;
     float jumpTimer = 0f;
-    float startY;
-    float TargetY;
-
-
+    float groundY; // Fixed ground level
 
     void Awake()
     {
         laneWidth = playAreaWidth / 3f;
+        groundY = transform.position.y; // Store the initial ground level
         updateTargetPosition();
-        startY = transform.position.y;
     }
 
     void Update()
     {
-
-        //horizontal movement
+        // Horizontal movement - only on X axis
+        Vector3 horizontalTarget = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
         transform.position = Vector3.MoveTowards(
             transform.position,
-            targetPosition,
+            horizontalTarget,
             moveSpeed * Time.deltaTime
         );
 
-        //handle Jumping
+        // Handle Jumping
         if (isJumping)
         {
             jumpTimer += Time.deltaTime;
             float t = jumpTimer / jumpDuration;
 
-            //simple simple parabola jump : y = x^2 / y = 4*h*t*(1-t)
-            float newY = startY + (4 * jumpHeight * t * (1 - t));
+            // Simple parabola jump: y = 4*h*t*(1-t)
+            float newY = groundY + (4 * jumpHeight * t * (1 - t));
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
 
             if (jumpTimer >= jumpDuration)
             {
                 isJumping = false;
-                transform.position = new Vector3(transform.position.x, startY, transform.position.z);
+                transform.position = new Vector3(transform.position.x, groundY, transform.position.z);
             }
-
         }
     }
-
 
     void updateTargetPosition()
     {
         // Lane X positions: left = +4, center = 0, right = -4
         float x = (currentLane - 1) * laneWidth; // center lane = 0
-        targetPosition = new Vector3(x, transform.position.y, transform.position.z);
+        targetPosition = new Vector3(x, groundY, transform.position.z); // Always use groundY for target position
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -101,10 +96,5 @@ public class PlayerMovement : MonoBehaviour
         if (isJumping) return;
         isJumping = true;
         jumpTimer = 0f;
-        startY = transform.position.y;
     }
-
-
-
-
 }
