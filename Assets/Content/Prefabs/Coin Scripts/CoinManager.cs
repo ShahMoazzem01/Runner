@@ -48,7 +48,7 @@ public class CoinManager : MonoBehaviour
         if (coinPool != null)
         {
             coinPool.Initialize();
-            DebugLog("Coin pool initialized with size: " + coinPool.poolSize);
+            // DebugLog("Coin pool initialized with size: " + coinPool.poolSize);
         }
         else
         {
@@ -78,7 +78,7 @@ public class CoinManager : MonoBehaviour
             GenerateCoinSet();
         }
 
-        DebugLog($"lastSpawnZ: {lastSpawnZ:F2}  threshold: {player.position.z + generationDistance:F2}  activeCoins: {activeCoins.Count}");
+        // DebugLog($"lastSpawnZ: {lastSpawnZ:F2}  threshold: {player.position.z + generationDistance:F2}  activeCoins: {activeCoins.Count}");
 
         RemoveOldCoins();
         MoveCoins();
@@ -89,13 +89,13 @@ public class CoinManager : MonoBehaviour
         int pattern = ChoosePattern();
         int coinsInSet = Random.Range(minCoins, maxCoins + 1);
 
-        DebugLog("Generating coin set. Pattern: " + pattern + ", Coins in set: " + coinsInSet);
+        // DebugLog("Generating coin set. Pattern: " + pattern + ", Coins in set: " + coinsInSet);
 
         if (pattern == 0) // Skip area
         {
             // Advance frontier for skipped distance
             lastSpawnZ += coinsInSet * coinGap;
-            DebugLog("Skipping coin generation. New lastSpawnZ: " + lastSpawnZ);
+            // DebugLog("Skipping coin generation. New lastSpawnZ: " + lastSpawnZ);
             return;
         }
 
@@ -124,7 +124,7 @@ public class CoinManager : MonoBehaviour
                     coin.transform.position = new Vector3(xPos, coinHeight, zPos);
                     coin.laneIndex = lane;
                     activeCoins.Add(coin);
-                    DebugLog("Coin generated at position: " + coin.transform.position);
+                    // DebugLog("Coin generated at position: " + coin.transform.position);
                 }
                 else
                 {
@@ -133,7 +133,7 @@ public class CoinManager : MonoBehaviour
             }
         }
 
-        DebugLog("Finished generating coins. LastSpawnZ: " + lastSpawnZ);
+        // DebugLog("Finished generating coins. LastSpawnZ: " + lastSpawnZ);
     }
 
     void RemoveOldCoins()

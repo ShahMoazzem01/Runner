@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2073213261613892445}
   m_Layer: 3
   m_Name: roof-right
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 3888045813019061113}
   m_Layer: 3
   m_Name: wall-detail-cross (1)
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,7 +633,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 5589162906915479431}
   m_Layer: 3
   m_Name: train-carriage-lumber
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,7 +830,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1796,7 +1796,7 @@ GameObject:
   - component: {fileID: 5500321569255409891}
   m_Layer: 3
   m_Name: roof-left
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1884,7 +1884,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2525,9 +2525,10 @@ GameObject:
   - component: {fileID: 1183392245431638125}
   - component: {fileID: 4651398375546322222}
   - component: {fileID: 6475493657892310154}
+  - component: {fileID: 3150216651485526237}
   m_Layer: 0
   m_Name: roof-flat
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2600,6 +2601,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3150216651485526237
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537700704375065027}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.1259017, z: 1}
+  m_Center: {x: 0, y: 0.06295085, z: 0}
 --- !u!1 &3538060645613896456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,7 +3292,7 @@ GameObject:
   - component: {fileID: 5775430009850104876}
   m_Layer: 3
   m_Name: wall-detail-cross
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3358,7 +3380,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3407,9 +3429,10 @@ GameObject:
   - component: {fileID: 2085903426848700889}
   - component: {fileID: 1384282425956083538}
   - component: {fileID: 3740191408304683792}
+  - component: {fileID: 7681107662118198630}
   m_Layer: 0
   m_Name: roof-flat (2)
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3482,6 +3505,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7681107662118198630
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385031012329214092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.1259017, z: 1}
+  m_Center: {x: 0, y: 0.06295085, z: 0}
 --- !u!1 &4415679226569003695
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,7 +4433,7 @@ GameObject:
   - component: {fileID: 818063841059717770}
   m_Layer: 3
   m_Name: train-carriage-dirt
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4480,7 +4524,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4500,7 +4544,7 @@ GameObject:
   - component: {fileID: 7232135175068041014}
   m_Layer: 3
   m_Name: train-locomotive-c
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4593,7 +4637,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5870,7 +5914,7 @@ GameObject:
   - component: {fileID: 9116915680710236205}
   m_Layer: 3
   m_Name: roof-window
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5958,7 +6002,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5978,7 +6022,7 @@ GameObject:
   - component: {fileID: 7129181563694721270}
   m_Layer: 3
   m_Name: train-locomotive-a
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6071,7 +6115,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7446,7 +7490,7 @@ GameObject:
   - component: {fileID: 589832162006636121}
   m_Layer: 0
   m_Name: ShadeRightOpening
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7777,9 +7821,10 @@ GameObject:
   - component: {fileID: 4807314284843996447}
   - component: {fileID: 5218808840936986083}
   - component: {fileID: 8101095641774476783}
+  - component: {fileID: 7810587092231185685}
   m_Layer: 0
   m_Name: roof-flat (1)
-  m_TagString: Untagged
+  m_TagString: DeadlyObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7852,6 +7897,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7810587092231185685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179185033062562792}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.1259017, z: 1}
+  m_Center: {x: 0, y: 0.06295085, z: 0}
 --- !u!1001 &272740417620342723
 PrefabInstance:
   m_ObjectHideFlags: 0

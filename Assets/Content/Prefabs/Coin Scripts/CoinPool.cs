@@ -29,7 +29,7 @@ public class CoinPool
         for (int i = 0; i < poolSize; i++)
             CreateNewCoin();
 
-        Debug.Log("Coin pool initialized with " + allCoins.Count + " coins.");
+        // Debug.Log("Coin pool initialized with " + allCoins.Count + " coins.");
     }
 
     private void CreateNewCoin()
