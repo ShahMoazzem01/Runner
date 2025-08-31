@@ -37,7 +37,7 @@ Goal:
 ## 📦 Build
 
 If the build is missing (GitHub size limits), download it from the release page or external link:  
-👉 [Link Download Buil] (https://drive.google.com/drive/folders/1wAwX8gVbpph36H_mKdbiVp6BF1ErFug_?usp=drive_link)
+👉 [Link Download Build] (https://drive.google.com/drive/folders/1wAwX8gVbpph36H_mKdbiVp6BF1ErFug_?usp=drive_link)
 
 
 ---
