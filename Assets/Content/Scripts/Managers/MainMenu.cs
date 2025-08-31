@@ -71,4 +71,6 @@ public class MainMenu : MonoBehaviour
         bestDistance = PlayerPrefs.GetFloat("BestDistance", 0f);
         bestCoins = PlayerPrefs.GetInt("BestCoins", 0);
     }
+
+    public void QuitGame() => Application.Quit();
 }
