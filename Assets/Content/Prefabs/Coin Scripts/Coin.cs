@@ -16,6 +16,7 @@ public class Coin : MonoBehaviour
         // If player collects coin
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayCoinSound();
             CollectCoin();
         }
     }

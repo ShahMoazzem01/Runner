@@ -16,7 +16,13 @@ public class GameManager : MonoBehaviour
     public float distanceRun = 0f;
     public int coinCount = 0;
 
+    [Header("Player Data (Totals)")]
+    public PlayerData playerData = new PlayerData();
+
     public GameState CurrentState { get; private set; } = GameState.Playing;
+
+    [Header("Game Over")]
+    [SerializeField] public GameObject pauseButton;
 
     void Awake()
     {
@@ -27,6 +33,13 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         // DontDestroyOnLoad(gameObject);
+
+        playerData.Load(); // load saved values at startup
+    }
+
+    void Start()
+    {
+        pauseButton.SetActive(true);
     }
 
     void OnEnable()
@@ -72,9 +85,9 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateCoinText(coinCount);
     }
 
-    public void SetPause(bool isPaused)
+    public void ToggelPuse()
     {
-        if (isPaused)
+        if (GameState.Paused != CurrentState)
         {
             CurrentState = GameState.Paused;
             Time.timeScale = 0f; // Stops physics, animations, Update calls that use deltaTime
@@ -86,13 +99,37 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f; // Resumes physics, animations, Update calls that use deltaTime
             UIManager.Instance.HidePauseMenu();
         }
+
     }
 
     public void SetGameOver()
     {
         CurrentState = GameState.GameOver;
-        Time.timeScale = 0f; // Freeze game
-        UIManager.Instance.ShowGameOverScreen();
+        pauseButton.SetActive(false);
+        Time.timeScale = 0f;
+
+        // Save run data (updates totals + bests inside PlayerData)
+        playerData.AddRunData(distanceRun, coinCount);
+
+        // Pass everything to UI
+        UIManager.Instance.ShowGameOverScreen(
+            distanceRun, coinCount,
+            playerData.bestDistance, playerData.bestCoins,
+            playerData.totalDistance, playerData.totalCoins
+        );
+    }
+
+
+    public void ResetRunData()
+    {
+        distanceRun = 0f;
+        coinCount = 0;
+    }
+
+    public void ResetAllPlayerData()
+    {
+        playerData.ResetAllData();
+        ResetRunData();
     }
 }
 

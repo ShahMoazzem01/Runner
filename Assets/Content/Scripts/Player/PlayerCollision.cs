@@ -14,6 +14,7 @@ public class PlayerCollision : MonoBehaviour
         }
         else if (tag == "DeadlyObstacle")
         {
+            AudioManager.Instance.PlayHitSound();
             GameEvents.Hit();
         }
     }

@@ -6,10 +6,12 @@ public class GroundManager : MonoBehaviour
 
     [Header("GroundPools")]
     [SerializeField] ObjectPool[] groundPools;
+    [SerializeField] private ObjectPool firstGroundPool;
     [SerializeField] int initalGroundPoolSize = 4;
     [SerializeField] float groundLength = 10f;
 
     Transform lastGround;
+    private bool firstSpawnDone = false; // To track the first ground
 
     void Awake()
     {
@@ -37,8 +39,17 @@ public class GroundManager : MonoBehaviour
 
     public void SpawnGround()
     {
-        int randomIndex = Random.Range(0, groundPools.Length);
-        ObjectPool chosenPool = groundPools[randomIndex];
+        ObjectPool chosenPool;
+        if (!firstSpawnDone && firstGroundPool != null)
+        {
+            chosenPool = firstGroundPool;
+            firstSpawnDone = true;
+        }
+        else
+        {
+            int randomIndex = Random.Range(0, groundPools.Length);
+            chosenPool = groundPools[randomIndex];
+        }
 
         GameObject ground = chosenPool.GetObject();
 

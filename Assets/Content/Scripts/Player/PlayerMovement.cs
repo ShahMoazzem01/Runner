@@ -31,10 +31,15 @@ public class PlayerMovement : MonoBehaviour
     {
         // Horizontal movement - only on X axis
         Vector3 horizontalTarget = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
+
+        float speed = moveSpeed * Time.deltaTime;
+        if (GameManager.Instance != null)
+            speed *= GameManager.Instance.gameSpeed;
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             horizontalTarget,
-            moveSpeed * GameManager.Instance.gameSpeed * Time.deltaTime
+            speed
         );
 
         // Handle Jumping
@@ -54,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
 
     void updateTargetPosition()
     {
@@ -94,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         if (isJumping) return;
+        AudioManager.Instance.PlayJumpSound();
         isJumping = true;
         jumpTimer = 0f;
     }
